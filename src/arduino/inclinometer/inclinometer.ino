@@ -43,10 +43,10 @@ const float warningBlinkRate = 3;
 // end up getting nonsense roll/pitch values.
 // Updating the screen takes a ton of time; every screen update is guaranteed to
 // fail to meet the requested 25Hz sensor update and introduce some errors to the filter.
-// By keeping the display refresh low (5 FPS), we keep the filter error acceptably low.
+// By keeping the display refresh low (10 FPS), we keep the filter error acceptably low.
 // We can't really get a significantly higher FPS anyway.
 const float sensorRate = 25;
-const float outputRate = 5;
+const float outputRate = 10;
 
 // Precomputed constants
 unsigned const long microsPerReading = 1000000 / sensorRate;
@@ -71,6 +71,7 @@ void setup() {
   }
   pinMode(warningLed, OUTPUT);
   u8g2.begin();
+  u8g2.setBusClock(400000);
   u8g2.sendF("ca", 0xd5, 0xf0); // Adjust oscillator frequency (refresh rate) to avoid FPV camera flicker
   microsReadingPrev = microsOutputPrev = micros();
   filter.begin(sensorRate);
