@@ -13,7 +13,7 @@
 
 Input voltage is 5-18V (2S-4S LiPo).
 
-![Wiring Diagram](assets/wiring diagram.png)
+![Wiring Diagram](assets/wiring-diagram.png)
 
 ![Wiring Photo](assets/nano-inclinometer-open.jpg)
 
